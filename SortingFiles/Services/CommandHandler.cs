@@ -4,19 +4,18 @@
     {
         public const char Prefix = '-';
 
-        private string command;
+        private readonly string command;
         private static string? folderName;
         private static string[]? exts;
-        private static string FolderPath { get; set; }
+        private static string? FolderPath { get; set; }
 
         private delegate void _del();
 
-        private static Dictionary<string, string[]> sortConfig = new Dictionary<string, string[]>();
-        private Dictionary<string, _del> commandList = new Dictionary<string, _del>()
+        private static readonly Dictionary<string, string[]> sortConfig = new();
+        private readonly Dictionary<string, _del> commandList = new()
         {
             { "Add",  new _del(Add) },
             { "Delete", new _del(Delete) },
-            { "SetPath", new _del(SetFolder) },
             { "Start", new _del(Start) }
         };
 
@@ -43,7 +42,7 @@
         {
             if(sortConfig.Count != 0)
             {
-                Sorter sorter = new Sorter(FolderPath, sortConfig);
+                Sorter sorter = new(FolderPath, sortConfig);
                 sorter.Sort();
             }
             else

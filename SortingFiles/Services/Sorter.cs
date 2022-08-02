@@ -2,8 +2,8 @@
 {
     internal class Sorter
     {
-        private static string FolderPath;
-        private static Dictionary<string, string[]> sortConfig;
+        private static string? FolderPath;
+        private static Dictionary<string, string[]>? sortConfig;
 
         public Sorter(string FolderPath, Dictionary<string, string[]> sortConfig) 
         {

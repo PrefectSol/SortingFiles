@@ -26,12 +26,12 @@
                     }
                     catch
                     {
-                        CommandHandler chStart = new CommandHandler(command);
+                        CommandHandler chStart = new(command);
                         chStart.Run();
                         continue;
                     }
 
-                    CommandHandler ch = new CommandHandler(command, folderName, extensions);
+                    CommandHandler ch = new(command, folderName, extensions);
                     ch.Run();
                 }
             }
